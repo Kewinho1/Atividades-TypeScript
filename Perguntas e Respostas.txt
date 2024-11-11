@@ -233,6 +233,8 @@ CAP06
 ## 9. Perguntas para Reflexão
 
 1. **Qual a importância da comunicação HTTP para aplicações web modernas?**
+R: HTTP (Hypertext Transfer Protocol) é um protocolo de comunicação utilizado para a transferência de dados na web. Ele estabelece as regras para a troca de informações entre um cliente, como um navegador, e um servidor, onde os recursos estão hospedados.
+
    - Como você vê a evolução do HTTP na construção de APIs e serviços?
 
 2. **Em quais situações você escolheria usar `GET` em vez de `POST`, e por quê?**
@@ -304,74 +306,10 @@ CAP10
 10. Que outras tecnologias ou frameworks poderiam ser integrados?
 
 
+Respostas dos Projetos Estão no Readme
 PROJ01
-1. **Compreensão do Fluxo do Jogo:**
-   - Como o fluxo do jogo se desenrola desde que o jogador faz uma escolha até que o resultado é exibido?
-   - O que acontece quando o jogador clica em um dos botões?
-
-2. **Lógica de Determinação do Vencedor:**
-   - Como a função `determineWinner` decide se o jogador ganhou, perdeu ou empatou?
-   - Que condições precisam ser atendidas para que cada resultado ocorra?
-
-3. **Uso de Funções:**
-   - Como as funções estão organizadas no código? Elas estão desempenhando suas responsabilidades de forma clara?
-   - O que você poderia fazer para melhorar a clareza ou a eficiência do código?
-
-4. **Manipulação do DOM:**
-   - Como o código utiliza a manipulação do DOM para atualizar o conteúdo da página?
-   - Que métodos foram utilizados para selecionar elementos e alterar seu conteúdo?
-
-5. **Eventos de Clique:**
-   - Como os eventos de clique são configurados para os botões? O que acontece quando um botão é clicado?
-   - O que você poderia adicionar para melhorar a interatividade do jogo?
-
-6. **Aleatoriedade:**
-   - Como a escolha da máquina é feita de forma aleatória? Você entende a lógica por trás de `Math.random()` e `Math.floor()`?
-   - Que outras maneiras você poderia implementar para gerar uma escolha aleatória?
-
-7. **Reflexão Pessoal:**
-    - O que você aprendeu ao criar este projeto?
-    - Como você se sente em relação ao uso de HTML, CSS e TypeScript juntos? Existe alguma parte do processo que você achou desafiadora?
-
-
 PROJ02
-### Perguntas para Reflexão
-
-1. **Compreensão do Fluxo do Jogo:**
-   - Como o fluxo do jogo se desenrola desde o início até a verificação da entrada do usuário?
-
-2. **Lógica da Sequência:**
-   - Como a sequência de cores é gerada e exibida ao jogador?
-
-3. **Uso de Funções:**
-   - As funções estão organizadas de forma clara? O que você faria diferente?
-
-4. **Manipulação do DOM:**
-   - Como o código utiliza a manipulação do DOM para atualizar a interface?
-
-5. **Interatividade:**
-   - Como os eventos de clique são configurados e gerenciados?
-
-6. **Debugging:**
-   - Você encontrou erros? Como você os resolveu?
-
-7. **Extensibilidade:**
-   - Que recursos adicionais você gostaria de adicionar ao jogo? Como você abordaria isso?
-
-
-PROJ3
-Agora que você construiu um simulador de semáforo, é hora de refletir sobre o que aprendeu. Aqui estão algumas perguntas para guiar sua reflexão:
-
-1. **Como o `enum` ajuda a organizar os estados do semáforo?**
-  
-2. **Por que o `setInterval` é útil neste projeto?**
-
-3. **O que acontece se mudarmos o tempo do `setInterval`?**
-
-4. **Como o uso das classes `active` e do CSS ajuda a alterar a aparência das luzes sem modificar o HTML diretamente?**
-
-5. **Como você poderia expandir este projeto?**
-
+PROJ03
 
 PROJ4
 ### 4. Perguntas para Reflexão
