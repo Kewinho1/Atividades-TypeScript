@@ -1,0 +1,443 @@
+CAP00
+1. **Qual é a função do JavaScript em uma aplicação web?**
+R: Criação de sites dinâmicos, formulários interativos, animações, validação de dados e manipulação do DOM (Document Object Model).
+
+2. **Como o JavaScript interage com HTML e CSS para criar páginas dinâmicas?**
+R: Enquanto HTML estrutura o conteúdo de uma página e o CSS estiliza a aparência, o JavaScript permite adicionar interatividade e dinamismo.
+
+3. **Quais são as principais diferenças entre JavaScript e outras linguagens de programação?**
+R: Ao contrário de linguagens como Java, que são baseadas em classes, JavaScript utiliza um modelo de objetos baseado em protótipos, permitindo a criação de objetos a partir de outros objetos.
+4. **O que são frameworks e bibliotecas JavaScript, e por que são úteis?**
+R: Frameworks e bibliotecas JavaScript são conjuntos de código pré-escrito que ajudam desenvolvedores a resolver problemas comuns e implementar funcionalidades sem precisar escrever tudo do zero
+5. **Como o JavaScript pode ser utilizado no desenvolvimento do lado do servidor?**
+R-Com o Node.js, o JavaScript pode ser usado para desenvolver aplicações do lado do servidor, permitindo a construção de APIs e serviços web.
+
+CAP01
+Aqui estão algumas perguntas que podem ajudar a aprofundar a compreensão sobre **TypeScript** e **configuração de ambiente**:
+
+1. **O que é TypeScript e quais são suas principais vantagens em relação ao JavaScript?**
+R:O TypeScript é uma linguagem de programação , que estende o JavaScript adicionando tipagem estática. Enquanto o JavaScript permite a execução de código sem verificar erros de tipo, o TypeScript detecta esses erros antes da execução, na fase de compilação. Isso traz benefícios como maior segurança, previsibilidade e facilidade de manutenção no desenvolvimento de software.
+2. **Explique o que é a tipagem estática no TypeScript e como ela melhora a qualidade do código.**
+R: Erros de tipos são detectados antes da execução.
+3. **Quais os passos necessários para configurar um ambiente de desenvolvimento TypeScript?**
+R: Passo 1: Instalando o Node.js , Passo 2: Instalando o TypeScript , Passo 3: Verificando a Instalação
+4. **O que é o Node.js e qual é a sua importância na configuração do TypeScript?**
+R: serve como ambiente de execução para JavaScript e fornece o npm (Node Package Manager), utilizado para gerenciar pacotes, incluindo o TypeScript.
+5. **Qual o comando utilizado para instalar o TypeScript globalmente e qual sua função?**
+R: npm install -g typescript : Esse comando instala o compilador TypeScript, permitindo o uso do comando tsc para compilar seus arquivos.
+6. **Explique o que faz o compilador `tsc` e como ele converte arquivos TypeScript em JavaScript.**
+R: O compilador TypeScript, tsc, converte arquivos .ts (TypeScript) em .js (JavaScript), que podem ser executados em qualquer ambiente que suporte JavaScript.
+7. **Para que serve o arquivo `tsconfig.json` em um projeto TypeScript e quais são suas principais configurações?**
+R: define as configurações de compilação do TypeScript, como o alvo da versão de JavaScript e o diretório de saída dos arquivos compilados.
+8. **Qual é a função da propriedade `"strict"` no arquivo `tsconfig.json`?**
+R: Ativa verificações estritas de tipos. Exemplo: "strict": true.
+9. **Como você configuraria um projeto TypeScript para compilar os arquivos em uma pasta específica?**
+R: "outDir": Define a pasta onde os arquivos compilados serão salvos. Exemplo: "outDir": "./dist".
+10. **Quais problemas o TypeScript pode ajudar a detectar durante a fase de desenvolvimento que o JavaScript não detectaria?**
+R: JavaScript permite a execução de código sem verificar erros de tipo, o TypeScript detecta esses erros antes da execução
+
+CAP02
+## 2.7 Perguntas para Reflexão
+
+Aqui estão 10 perguntas que podem ajudar a aprofundar a compreensão sobre a sintaxe e tipagem em TypeScript:
+
+1. **Quais são os principais tipos básicos disponíveis no TypeScript?**
+R: Boolean , Number , String , Array , Tuple , Enum
+2. **Como você utilizaria o tipo `enum` em um projeto real?**
+R:  útiizaria para definir conjuntos de valores nomeados e constantes, que representam categorias, estados ou opções específicas em uma aplicação (EX: Red, Green, Blue)
+3. **Qual a diferença entre os tipos `any` e `unknown`?**
+R: Any Permite definir uma variável que pode ter qualquer tipo. Deve ser usado com cautela, pois elimina a verificação de tipos, Unknown Semelhante ao tipo any, mas mais seguro, pois requer verificação de tipo antes de uso.
+4. **Como as tuples diferem dos arrays em TypeScript?**
+R:Array Permite armazenar múltiplos valores do mesmo tipo, Tuple Permite armazenar um conjunto fixo de elementos de diferentes tipos.
+5. **Quando você usaria `void` em uma função?**
+R:Usado em funções que não retornam um valor.
+6. **O que é uma Union Type e como ela pode ser útil?**
+R: Permitem que uma variável aceite múltiplos tipos. (Ex: String e Numbers)
+7. **Como você utilizaria a Intersection Type para combinar propriedades de diferentes interfaces?**
+R: Permitem combinar múltiplos tipos em um único tipo.
+
+EX: interface Person {
+    name: string;
+}
+interface Employee {
+    employeeId: number;
+}
+type Worker = Person & Employee;
+const worker: Worker = {
+    name: "Alice",
+    employeeId: 1
+};
+
+8. **Qual é a importância da inferência de tipo no TypeScript?**
+R: Produtividade e Legibilidade do Código , Detecção Antecipada de Erros , Suporte a Ferramentas de Autocompletar e Refatoração, Flexibilidade com Tipagem Opcional
+9. **Como você utilizaria type assertions na prática?**
+Permitem que você "afirme" o tipo de uma variável, informando ao compilador que você sabe melhor.
+
+EX: let someValue: unknown = "Hello, World!";
+let strLength: number = (someValue as string).length; // Usando 'as'
+
+10. **De que forma a tipagem estática do TypeScript pode melhorar a qualidade do código em comparação com o JavaScript?**
+R: Essa tipagem permite aos desenvolvedores especificar os tipos de variáveis, funções e objetos, resultando em código mais seguro e fácil de manter. A sintaxe do TypeScript é semelhante à do JavaScript, mas com recursos adicionais que ajudam a trabalhar com tipos de dados.
+
+CAP03
+## 3.4 Perguntas para Reflexão
+
+1. **O que são parâmetros opcionais em funções?**
+R: Os parâmetros opcionais são aqueles que podem ou não ser fornecidos ao chamar a função. Para indicar que um parâmetro é opcional, basta adicionar o símbolo ? após o nome do parâmetro.
+2. **Qual é a principal diferença entre uma função anônima e uma arrow function?**
+R: Funções anônimas são funções que não possuem um nome. Elas são frequentemente usadas como argumentos para outras funções, As arrow functions oferecem uma sintaxe mais concisa para escrever funções, além de manter o valor correto de this no contexto onde são criadas.
+3. **Como você define uma classe em TypeScript?**
+R: class Person {
+    name: string;
+    age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet(): string {
+        return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+    }
+}
+
+const person = new Person("Alice", 30);
+console.log(person.greet());
+
+4. **O que é uma interface e como ela é usada em TypeScript?**
+R: As interfaces definem contratos para objetos e classes, descrevendo como os objetos devem se comportar.
+
+5. **O que é herança e como ela funciona em TypeScript?**
+R: A herança permite que uma classe herde propriedades e métodos de outra classe, promovendo reutilização de código.
+
+6. **Explique o conceito de polimorfismo com um exemplo.**
+R: O polimorfismo permite que objetos de diferentes classes herdem o mesmo comportamento, mas possam ter implementações específicas.
+
+class Animal {
+    sound(): string {
+        return "Some sound";
+    }
+}
+
+class Dog extends Animal {
+    sound(): string {
+        return "Woof!";
+    }
+}
+
+class Cat extends Animal {
+    sound(): string {
+        return "Meow!";
+    }
+}
+
+function makeSound(animal: Animal) {
+    console.log(animal.sound());
+}
+
+makeSound(new Dog()); // Woof!
+makeSound(new Cat()); // Meow!
+Aqui, diferentes subclasses (Dog e Cat) implementam o método sound de maneira distinta, mas ambas podem ser tratadas como um Animal.
+
+7. **Qual é a função do encapsulamento em classes?**
+R: O encapsulamento permite proteger os dados internos de uma classe, controlando o acesso a eles através de métodos específicos. Isso é feito usando os modificadores private e protected.
+
+8. **Como você cria uma função com um valor padrão para um parâmetro?**
+R: function greet(name: string): string {
+    return `Hello, ${name}!`;
+}
+
+console.log(greet("Alice"));
+
+9. **O que acontece se você não passar um parâmetro opcional em uma função?**
+R: a função lida com ambos os casos, quando o parâmetro é fornecido e quando não é, ele será tratado como undefined
+10. **Quais são os benefícios de utilizar interfaces ao invés de classes?**
+R: Interfaces fornecem uma maneira leve, flexível e eficaz de definir contratos de estrutura e comportamento em TypeScript. Em situações onde a implementação de métodos não é necessária e apenas a estrutura do objeto é importante, as interfaces são ideais, tornando o código mais flexível e fácil de manter.
+
+CAP04
+## 4.6 Perguntas para Reflexão
+
+1. **O que é um módulo em TypeScript e como ele é utilizado?**
+R: Módulos são uma maneira de organizar e reutilizar código em TypeScript, facilitando a manutenção e a escalabilidade dos projetos. Eles permitem que você separe seu código em diferentes arquivos e componentes, tornando-o mais modular.
+
+2. **Qual a diferença entre `export` e `export default`?**
+R: Para compartilhar código entre diferentes arquivos, você pode usar a palavra-chave export para tornar funções, classes, interfaces ou variáveis disponíveis em outros módulos, Você também pode usar export default para exportar um único valor ou objeto de um módulo.
+
+3. **Como namespaces ajudam a organizar o código?**
+R: Namespaces fornecem uma maneira de organizar o código dentro de um único arquivo ou módulo, agrupando código relacionado e evitando conflitos de nome. Eles são úteis quando você deseja encapsular código em um escopo lógico.
+
+4. **Como você pode evitar conflitos de nome em um projeto grande?**
+R: Namespaces ajudam a evitar conflitos de nome em grandes projetos. Componentes dentro de um namespace só podem ser acessados pelo nome do namespace.
+
+5. **O que é o Webpack e como ele auxilia no desenvolvimento?**
+R: Webpack é uma ferramenta que empacota vários arquivos JavaScript e suas dependências em um único arquivo. Ele também pode processar arquivos TypeScript.
+
+6. **Qual o propósito do Babel em projetos TypeScript?**
+R: Babel é um compilador que permite escrever código JavaScript moderno, que pode ser convertido para versões mais antigas da linguagem para maior compatibilidade.
+
+7. **Como você manipula o DOM com TypeScript?**
+R: Manipular o DOM e lidar com eventos são tarefas essenciais no desenvolvimento web. Em TypeScript, você pode fazer isso de forma semelhante ao JavaScript, mas com o suporte de tipagem.
+
+8. **Como eventos são tratados em TypeScript?**
+R: Além de manipular o DOM, você pode lidar com eventos, como cliques ou digitação de texto, de maneira segura com TypeScript.
+
+9. **O que são type assertions e por que são importantes na manipulação de DOM?**
+R: Type assertions são uma ferramenta útil no TypeScript, especialmente ao manipular o DOM, permitindo que você acesse propriedades específicas de tipos de elementos DOM de maneira segura e eficiente. Elas ajudam a superar as limitações do tipo genérico HTMLElement e fornecem mais controle sobre a tipagem, mas devem ser usadas com cuidado para garantir que não haja inconsistências ou erros no código.
+10. **Quais são os benefícios de usar ferramentas de build como Webpack e Babel em projetos TypeScript?**
+R: Ferramentas como Webpack e Babel são amplamente utilizadas em projetos TypeScript para compilar, empacotar e otimizar o código.
+
+CAP05
+## 5. Perguntas para Reflexão
+
+1. O que é o DOM e como ele é manipulado em TypeScript?
+2. Qual a diferença entre a manipulação de DOM em JavaScript e TypeScript?
+3. Como você tiparia um evento de clique no TypeScript?
+4. Qual o benefício de usar `as` para afirmar o tipo de um elemento do DOM?
+5. Como a tipagem estática pode ajudar na manipulação de eventos?
+6. O que é um `MouseEvent` e como ele é usado?
+7. Como você pode integrar jQuery em um projeto TypeScript?
+8. Qual a vantagem de utilizar bibliotecas JavaScript populares com TypeScript?
+9. Quais são as melhores práticas para manipular o DOM com TypeScript?
+10. Como as interfaces de TypeScript podem ser usadas para melhorar o código em bibliotecas como React?
+
+
+CAP06
+## 9. Perguntas para Reflexão
+
+1. **Qual a importância da comunicação HTTP para aplicações web modernas?**
+   - Como você vê a evolução do HTTP na construção de APIs e serviços?
+
+2. **Em quais situações você escolheria usar `GET` em vez de `POST`, e por quê?**
+   - Como as semânticas de cada método HTTP impactam o design da sua API?
+
+3. **Como os parâmetros de rota e query params podem melhorar a flexibilidade de uma API?**
+   - Você consegue pensar em um exemplo prático onde ambos seriam utilizados?
+
+4. **Qual é a função dos headers em uma requisição HTTP?**
+   - Como a falta de headers apropriados poderia afetar a comunicação entre cliente e servidor?
+
+5. **Quais são as vantagens de usar bibliotecas como Axios ou Fetch em comparação com XMLHttpRequest?**
+   - Há situações onde você ainda utilizaria XMLHttpRequest? Por quê?
+
+6. **Como a segurança deve ser considerada ao enviar dados sensíveis em requisições HTTP?**
+   - Quais práticas você implementaria para proteger dados durante a comunicação?
+
+7. **Como você poderia utilizar os métodos HTTP em um projeto de API que desenvolve?**
+   - Pense em um projeto em que você precisaria implementar diferentes métodos. Quais seriam?
+
+8. **Qual a diferença entre requisições síncronas e assíncronas?**
+   - Como a natureza assíncrona das requisições HTTP impacta a experiência do usuário?
+
+9. **Como você trataria erros em requisições HTTP?**
+   - Quais estratégias você poderia implementar para garantir uma boa experiência em caso de falhas?
+
+10. **Que práticas de design de API você considera essenciais para uma boa documentação e usabilidade?**
+    - O que você incluiria em uma documentação de API para facilitar o uso por desenvolvedores externos?
+
+
+
+CAP08
+## Perguntas para reflexão
+
+1. **Como o uso do `useState` pode simplificar o gerenciamento de estado em comparação com componentes de classe no React?**
+   
+2. **Quais são as principais vantagens de utilizar TypeScript em conjunto com o `useState`?**
+
+3. **De que maneira a tipagem de estado pode ajudar a evitar erros durante o desenvolvimento? Você já encontrou problemas relacionados a tipos em seu código?**
+
+4. **Como você lidaria com atualizações de estado que dependem do estado anterior? Por que é importante usar a função de callback nesse caso?**
+
+5. **Quais são algumas situações em que você usaria `useState` para gerenciar arrays? Você já teve desafios ao manipular arrays em estados?**
+
+6. **Como o `useEffect` pode complementar o `useState` em componentes funcionais? Quais cenários você imagina onde essa combinação seria útil?**
+
+7. **Você já experimentou atualizar objetos complexos com o `useState`? Quais cuidados você precisa ter ao fazer isso?**
+
+8. **Como você se sente em relação à transição de componentes de classe para componentes funcionais no React? Quais desafios ou benefícios você percebeu?**
+
+9. **Em que situações você poderia preferir usar outros hooks, como `useReducer`, em vez de `useState`?**
+
+10. **Quais práticas recomendadas você aplicaria ao gerenciar o estado em aplicações React maiores e mais complexas?** 
+
+
+
+CAP10
+### Perguntas para reflexão
+
+1. Como posso otimizar a organização do código?  
+2. Como gerenciar o estado da aplicação de forma mais eficiente?  
+3. Como posso armazenar as tarefas localmente?  
+4. Como implementar validações mais robustas?  
+5. Quais melhorias de acessibilidade podem ser feitas?  
+6. Como posso melhorar a experiência do usuário com animações?  
+7. Como implementar testes para garantir a funcionalidade?  
+8. Que outras funcionalidades poderiam ser agregadas?  
+9. Como escalar este projeto?  
+10. Que outras tecnologias ou frameworks poderiam ser integrados?
+
+
+PROJ01
+1. **Compreensão do Fluxo do Jogo:**
+   - Como o fluxo do jogo se desenrola desde que o jogador faz uma escolha até que o resultado é exibido?
+   - O que acontece quando o jogador clica em um dos botões?
+
+2. **Lógica de Determinação do Vencedor:**
+   - Como a função `determineWinner` decide se o jogador ganhou, perdeu ou empatou?
+   - Que condições precisam ser atendidas para que cada resultado ocorra?
+
+3. **Uso de Funções:**
+   - Como as funções estão organizadas no código? Elas estão desempenhando suas responsabilidades de forma clara?
+   - O que você poderia fazer para melhorar a clareza ou a eficiência do código?
+
+4. **Manipulação do DOM:**
+   - Como o código utiliza a manipulação do DOM para atualizar o conteúdo da página?
+   - Que métodos foram utilizados para selecionar elementos e alterar seu conteúdo?
+
+5. **Eventos de Clique:**
+   - Como os eventos de clique são configurados para os botões? O que acontece quando um botão é clicado?
+   - O que você poderia adicionar para melhorar a interatividade do jogo?
+
+6. **Aleatoriedade:**
+   - Como a escolha da máquina é feita de forma aleatória? Você entende a lógica por trás de `Math.random()` e `Math.floor()`?
+   - Que outras maneiras você poderia implementar para gerar uma escolha aleatória?
+
+7. **Reflexão Pessoal:**
+    - O que você aprendeu ao criar este projeto?
+    - Como você se sente em relação ao uso de HTML, CSS e TypeScript juntos? Existe alguma parte do processo que você achou desafiadora?
+
+
+PROJ02
+### Perguntas para Reflexão
+
+1. **Compreensão do Fluxo do Jogo:**
+   - Como o fluxo do jogo se desenrola desde o início até a verificação da entrada do usuário?
+
+2. **Lógica da Sequência:**
+   - Como a sequência de cores é gerada e exibida ao jogador?
+
+3. **Uso de Funções:**
+   - As funções estão organizadas de forma clara? O que você faria diferente?
+
+4. **Manipulação do DOM:**
+   - Como o código utiliza a manipulação do DOM para atualizar a interface?
+
+5. **Interatividade:**
+   - Como os eventos de clique são configurados e gerenciados?
+
+6. **Debugging:**
+   - Você encontrou erros? Como você os resolveu?
+
+7. **Extensibilidade:**
+   - Que recursos adicionais você gostaria de adicionar ao jogo? Como você abordaria isso?
+
+
+PROJ3
+Agora que você construiu um simulador de semáforo, é hora de refletir sobre o que aprendeu. Aqui estão algumas perguntas para guiar sua reflexão:
+
+1. **Como o `enum` ajuda a organizar os estados do semáforo?**
+  
+2. **Por que o `setInterval` é útil neste projeto?**
+
+3. **O que acontece se mudarmos o tempo do `setInterval`?**
+
+4. **Como o uso das classes `active` e do CSS ajuda a alterar a aparência das luzes sem modificar o HTML diretamente?**
+
+5. **Como você poderia expandir este projeto?**
+
+
+PROJ4
+### 4. Perguntas para Reflexão
+
+1. O que é orientação a objetos e como ela é aplicada em TypeScript?
+2. Como você define uma classe em TypeScript?
+3. Qual a função do método `constructor` em uma classe?
+4. Como funcionam as instâncias de objetos em TypeScript?
+5. Como você poderia modificar o jogo para adicionar dificuldade crescente?
+6. O que é o encapsulamento e como ele foi usado nas classes do jogo?
+7. Como funciona o método `move()` da classe **Snake**?
+8. Como você faria para implementar colisões com as bordas do canvas?
+9. Quais são as vantagens de utilizar tipagem estática em projetos como este?
+10. Como você modularizaria este código utilizando **módulos** em TypeScript?
+
+
+PROJ5
+## 5. Perguntas para Reflexão
+
+1. Como o conceito de herança poderia ser aplicado no jogo da batalha?
+2. Quais são as vantagens de usar classes para representar Pokémon e golpes?
+3. Como você poderia modificar o jogo para suportar mais Pokémon?
+4. Como o encapsulamento foi aplicado nas classes do projeto?
+5. Qual o papel da tipagem estática no desenvolvimento deste jogo?
+6. Como você controlaria a ordem de turnos em uma batalha entre múltiplos Pokémon?
+7. Como garantir que o Pokémon derrotado não possa mais atacar?
+8. Como você modularizaria o código utilizando importação e exportação de módulos?
+9. Como funcionam as classes anônimas em TypeScript e como elas poderiam ser usadas neste contexto?
+10. Como a implementação de eventos no DOM auxilia na interação do jogador com a aplicação?
+
+
+REPO01
+### Perguntas para Entrevista
+
+1. **Como você configuraria um projeto para utilizar TypeScript no Node.js?**  
+
+2. **O que é Prisma e como ele interage com o banco de dados SQLite?**  
+
+3. **No modelo Prisma, qual a função do campo `@updatedAt`?**  
+
+4. **Qual a diferença entre as funções `req.on('data')` e `req.on('end')` no código do servidor HTTP?**  
+
+5. **Por que usamos o `JSON.stringify` na resposta da API?**  
+
+6. **Quais seriam as vantagens de utilizar Express nesse projeto, se decidíssemos por adicioná-lo?**  
+
+7. **Como você executaria migrações no Prisma?**  
+
+8. **Se você precisasse adicionar validações nos dados do usuário, onde isso seria feito no código?**  
+
+9. **Como você trataria erros no código atual para melhorar a robustez da API?**  
+
+10. **Como você expandiria essa API para incluir autenticação de usuários?**  
+
+
+Essas perguntas servem para avaliar o entendimento técnico do candidato sobre os conceitos abordados no artigo, bem como sua capacidade de expandir e melhorar o projeto.
+
+
+REPO02
+### Perguntas para Entrevista
+
+1. **Qual a função do `express.json()` neste projeto?**  
+
+2. **Como o Prisma se conecta ao banco de dados SQLite neste projeto?**  
+
+3. **Explique o que acontece quando uma requisição POST é feita para `/users`.**  
+
+4. **Quais são as vantagens de usar o Express em comparação com o uso apenas do módulo HTTP nativo do Node.js?**  
+
+5. **O que acontece se tentarmos atualizar um usuário inexistente na rota `PUT /users/:id`?**  
+
+6. **Como você expandiria essa API para incluir autenticação de usuários?**  
+
+7. **Quais são os benefícios de usar TypeScript neste projeto?**  
+
+8. **Se você quisesse adicionar validações adicionais nos campos `name` e `email`, onde você faria isso no código?**  
+
+9. **Por que optamos por usar SQLite como banco de dados nesse projeto?**  
+
+10. **Como Prisma lida com migrações de banco de dados e por que isso é importante?**  
+
+Essas perguntas ajudarão a avaliar o entendimento do candidato sobre o uso de Node.js, Express, Prisma e SQLite no desenvolvimento de APIs, além de medir sua capacidade de expandir e manter o projeto de forma eficiente.
+
+REPO03
+### Perguntas para Entrevista
+
+1. **Qual a vantagem de usar o Prisma com NestJS em comparação a outros ORMs?**  
+
+2. **Como o NestJS facilita a separação de responsabilidades no desenvolvimento de APIs?**  
+
+3. **Explique como funciona o ciclo de vida do Prisma dentro do NestJS.**  
+
+4. **Quais são os principais benefícios do uso de SQLite para este projeto?**  
+
+5. **Qual a importância das validações no `UsersService` e onde você adicionaria essas validações?**  
+
+6. **Como o NestJS implementa injeção de dependência e quais as vantagens disso?**  
