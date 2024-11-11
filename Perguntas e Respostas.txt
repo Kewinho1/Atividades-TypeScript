@@ -310,89 +310,10 @@ Respostas dos Projetos Estão no Readme
 PROJ01
 PROJ02
 PROJ03
-
-PROJ4
-### 4. Perguntas para Reflexão
-
-1. O que é orientação a objetos e como ela é aplicada em TypeScript?
-2. Como você define uma classe em TypeScript?
-3. Qual a função do método `constructor` em uma classe?
-4. Como funcionam as instâncias de objetos em TypeScript?
-5. Como você poderia modificar o jogo para adicionar dificuldade crescente?
-6. O que é o encapsulamento e como ele foi usado nas classes do jogo?
-7. Como funciona o método `move()` da classe **Snake**?
-8. Como você faria para implementar colisões com as bordas do canvas?
-9. Quais são as vantagens de utilizar tipagem estática em projetos como este?
-10. Como você modularizaria este código utilizando **módulos** em TypeScript?
-
-
-PROJ5
-## 5. Perguntas para Reflexão
-
-1. Como o conceito de herança poderia ser aplicado no jogo da batalha?
-2. Quais são as vantagens de usar classes para representar Pokémon e golpes?
-3. Como você poderia modificar o jogo para suportar mais Pokémon?
-4. Como o encapsulamento foi aplicado nas classes do projeto?
-5. Qual o papel da tipagem estática no desenvolvimento deste jogo?
-6. Como você controlaria a ordem de turnos em uma batalha entre múltiplos Pokémon?
-7. Como garantir que o Pokémon derrotado não possa mais atacar?
-8. Como você modularizaria o código utilizando importação e exportação de módulos?
-9. Como funcionam as classes anônimas em TypeScript e como elas poderiam ser usadas neste contexto?
-10. Como a implementação de eventos no DOM auxilia na interação do jogador com a aplicação?
-
-
+PROJ04
+PROJ05
 REPO01
-### Perguntas para Entrevista
-
-1. **Como você configuraria um projeto para utilizar TypeScript no Node.js?**  
-
-2. **O que é Prisma e como ele interage com o banco de dados SQLite?**  
-
-3. **No modelo Prisma, qual a função do campo `@updatedAt`?**  
-
-4. **Qual a diferença entre as funções `req.on('data')` e `req.on('end')` no código do servidor HTTP?**  
-
-5. **Por que usamos o `JSON.stringify` na resposta da API?**  
-
-6. **Quais seriam as vantagens de utilizar Express nesse projeto, se decidíssemos por adicioná-lo?**  
-
-7. **Como você executaria migrações no Prisma?**  
-
-8. **Se você precisasse adicionar validações nos dados do usuário, onde isso seria feito no código?**  
-
-9. **Como você trataria erros no código atual para melhorar a robustez da API?**  
-
-10. **Como você expandiria essa API para incluir autenticação de usuários?**  
-
-
-Essas perguntas servem para avaliar o entendimento técnico do candidato sobre os conceitos abordados no artigo, bem como sua capacidade de expandir e melhorar o projeto.
-
-
 REPO02
-### Perguntas para Entrevista
-
-1. **Qual a função do `express.json()` neste projeto?**  
-
-2. **Como o Prisma se conecta ao banco de dados SQLite neste projeto?**  
-
-3. **Explique o que acontece quando uma requisição POST é feita para `/users`.**  
-
-4. **Quais são as vantagens de usar o Express em comparação com o uso apenas do módulo HTTP nativo do Node.js?**  
-
-5. **O que acontece se tentarmos atualizar um usuário inexistente na rota `PUT /users/:id`?**  
-
-6. **Como você expandiria essa API para incluir autenticação de usuários?**  
-
-7. **Quais são os benefícios de usar TypeScript neste projeto?**  
-
-8. **Se você quisesse adicionar validações adicionais nos campos `name` e `email`, onde você faria isso no código?**  
-
-9. **Por que optamos por usar SQLite como banco de dados nesse projeto?**  
-
-10. **Como Prisma lida com migrações de banco de dados e por que isso é importante?**  
-
-Essas perguntas ajudarão a avaliar o entendimento do candidato sobre o uso de Node.js, Express, Prisma e SQLite no desenvolvimento de APIs, além de medir sua capacidade de expandir e manter o projeto de forma eficiente.
-
 REPO03
 ### Perguntas para Entrevista
 
