@@ -190,15 +190,43 @@ CAP05
 ## 5. Perguntas para Reflexão
 
 1. O que é o DOM e como ele é manipulado em TypeScript?
+R: Document Object Model (DOM) é uma parte fundamental do desenvolvimento web. Em TypeScript, essa manipulação é feita de maneira muito parecida com o JavaScript tradicional
+
 2. Qual a diferença entre a manipulação de DOM em JavaScript e TypeScript?
+R: Em TypeScript, essa manipulação é feita de maneira muito parecida com o JavaScript tradicional, mas com a vantagem de usar tipagem estática para garantir maior segurança e robustez no código.
+
 3. Como você tiparia um evento de clique no TypeScript?
+R> const button = document.getElementById("myButton") as HTMLButtonElement;
+
+button.addEventListener("click", (event: MouseEvent) => {
+    console.log("Botão clicado!", event.clientX, event.clientY);
+});
+
 4. Qual o benefício de usar `as` para afirmar o tipo de um elemento do DOM?
+R: Usar o as para afirmar o tipo de um elemento do DOM no TypeScript é uma maneira eficaz de garantir que você possa acessar as propriedades e métodos específicos do tipo do elemento.
+
 5. Como a tipagem estática pode ajudar na manipulação de eventos?
+R: A tipagem estática pode ser extremamente útil na manipulação de eventos, oferecendo vantagens significativas em termos de segurança, legibilidade e manutenção do código
+
 6. O que é um `MouseEvent` e como ele é usado?
+R: o tipo MouseEvent para tipar o evento de clique. Isso garante que o TypeScript saiba que estamos lidando com um evento de mouse
+
 7. Como você pode integrar jQuery em um projeto TypeScript?
+R: Para usar jQuery com TypeScript, você precisa instalar os tipos correspondentes à biblioteca:
+
+npm install --save @types/jquery
+Exemplo de uso com jQuery:
+
+import * as $ from "jquery";
+
 8. Qual a vantagem de utilizar bibliotecas JavaScript populares com TypeScript?
+R: você pode se beneficiar de tipagem estática, que ajuda a reduzir erros de tempo de execução e facilita o autocompletar em IDEs.
+
 9. Quais são as melhores práticas para manipular o DOM com TypeScript?
+R: Evitar o uso de any,  Use o operador de asserção (as) corretamente,  Use o tipo HTMLElement de forma genérica, Evite manipulação direta do DOM, Use eventos de forma tipada, Manipule elementos com tipos específicos , Trabalhe com querySelector de forma segura ,  Use forEach em NodeLists quando possível , Evite a manipulação do DOM dentro de loops , Documentação e Comentários, Teste com Ferramentas de Acessibilidade
+
 10. Como as interfaces de TypeScript podem ser usadas para melhorar o código em bibliotecas como React?
+r: No caso de React, o suporte a TypeScript é nativo e pode ser integrado diretamente ao seu projeto:
 
 
 CAP06
