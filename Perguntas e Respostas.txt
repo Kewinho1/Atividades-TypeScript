@@ -236,79 +236,279 @@ CAP06
 R: HTTP (Hypertext Transfer Protocol) é um protocolo de comunicação utilizado para a transferência de dados na web. Ele estabelece as regras para a troca de informações entre um cliente, como um navegador, e um servidor, onde os recursos estão hospedados.
 
    - Como você vê a evolução do HTTP na construção de APIs e serviços?
+   R - A evolução do HTTP trouxe avanços cruciais para APIs e serviços, como o HTTP/2 e o HTTP/3, que aumentaram a eficiência e reduziram a latência com multiplexação e conexões mais rápidas.
 
 2. **Em quais situações você escolheria usar `GET` em vez de `POST`, e por quê?**
 R: GET: Usado para recuperar dados sem alterar o estado do servidor. Ideal para requisições simples e leitura de informações, POST: Usado para enviar dados ao servidor e geralmente criar ou modificar recursos. Ideal quando os dados são grandes ou sensíveis e quando você precisa alterar o estado do servidor
 
    - Como as semânticas de cada método HTTP impactam o design da sua API?
+   R - As semânticas dos métodos HTTP (GET, POST, PUT, DELETE, etc.) estruturam o design da API, garantindo que cada ação seja intuitiva e adequada à sua função.
 
 3. **Como os parâmetros de rota e query params podem melhorar a flexibilidade de uma API?**
 R: Eles permitem que a API seja mais flexível, reutilizável e escalável.
 
    - Você consegue pensar em um exemplo prático onde ambos seriam utilizados?
 
+   R: API para buscar produtos em um e-commerce:
+Endpoint: /products/:category
+Parâmetro de rota: category especifica a categoria do produto (ex: /products/electronics).
+Query params: para filtros adicionais, como preço e classificação, usamos algo como /products/electronics?price_min=100&price_max=500&rating=4.
+Esse design permite buscar produtos de uma categoria específica e ainda ajustar os resultados com filtros personalizados.
+
 4. **Qual é a função dos headers em uma requisição HTTP?**
 
+R: Os headers em uma requisição HTTP fornecem metadados que orientam o servidor e o cliente sobre como tratar a requisição e a resposta.
+ Eles incluem informações sobre autenticação, tipo de conteúdo (como JSON ou XML), idioma, cache, e compressão, além de gerenciar segurança (ex: tokens de autenticação) e controle de permissões
+
    - Como a falta de headers apropriados poderia afetar a comunicação entre cliente e servidor?
+R: headers inadequados ou ausentes comprometem a funcionalidade, segurança e eficiência da comunicação.
 
 5. **Quais são as vantagens de usar bibliotecas como Axios ou Fetch em comparação com XMLHttpRequest?**
+Bibliotecas como Axios e Fetch oferecem uma interface mais moderna e simplificada em comparação com XMLHttpRequest, API mais simples, Interceptors, Suporte a JSON
+
    - Há situações onde você ainda utilizaria XMLHttpRequest? Por quê?
+   R: Compatibilidade com navegadores antigos, Controle granular sobre a requisição, Ambientes muito restritos, Embora essas situações sejam raras,
+    o XMLHttpRequest ainda é uma opção válida quando compatibilidade e controle são prioridades absolutas.
 
 6. **Como a segurança deve ser considerada ao enviar dados sensíveis em requisições HTTP?**
+R: é essencial implementar várias camadas de segurança, Usar HTTPS, Headers de segurança, Autenticação e tokens, Evitar dados sensíveis na URL, Proteção contra CSRF e XSS, Validação e criptografia de dados
+
    - Quais práticas você implementaria para proteger dados durante a comunicação?
+R: Criptografia com HTTPS, Autenticação segura, Headers de segurança, Proteção contra CSRF, Criptografia de dados sensíveis, Limite de escopo e permissões, Verificação e sanitização de dados
 
 7. **Como você poderia utilizar os métodos HTTP em um projeto de API que desenvolve?**
+R: Em um projeto de API, cada método HTTP desempenha um papel específico para manter a organização e semântica das operações:
+GET: Usado para buscar dados, como listar recursos ou obter detalhes específicos (ex: GET /users para listar todos os usuários ou GET /users/{id} para um usuário específico).
+POST: Utilizado para criar novos recursos no servidor (ex: POST /users para criar um novo usuário com dados enviados no corpo da requisição).
+PUT: Aplicado para atualizar recursos existentes de forma completa (ex: PUT /users/{id} para substituir os dados de um usuário específico).
+PATCH: Usado para atualizações parciais de um recurso (ex: PATCH /users/{id} para atualizar apenas alguns campos do usuário).
+DELETE: Utilizado para excluir recursos (ex: DELETE /users/{id} para remover um usuário específico).
+
    - Pense em um projeto em que você precisaria implementar diferentes métodos. Quais seriam?
+   R: API para gerenciamento de tarefas (to-do list):
+GET /tasks: Para listar todas as tarefas.
+GET /tasks/{id}: Para obter detalhes de uma tarefa específica.
+POST /tasks: Para criar uma nova tarefa com título, descrição e data de conclusão.
+PUT /tasks/{id}: Para atualizar todos os dados de uma tarefa existente.
+PATCH /tasks/{id}: Para atualizar apenas alguns campos, como o status de conclusão.
+DELETE /tasks/{id}: Para excluir uma tarefa específica.
 
 8. **Qual a diferença entre requisições síncronas e assíncronas?**
+R: Requisições síncronas: Bloqueiam o fluxo do código até que a resposta seja recebida. Isso significa que o programa espera a conclusão da requisição antes de continuar executando as
+ próximas instruções. Esse tipo de requisição pode causar lentidão ou congelamento em aplicações de interface gráfica ou web.
+Requisições assíncronas: Permitem que o programa continue executando outras tarefas enquanto a resposta da requisição é aguardada. Quando a resposta chega, 
+um callback ou uma promise trata o resultado. Esse método é preferido para aplicações modernas, pois melhora a experiência do usuário, evitando bloqueios e mantendo a aplicação responsiva.
+
    - Como a natureza assíncrona das requisições HTTP impacta a experiência do usuário?
+A natureza assíncrona das requisições HTTP melhora significativamente a experiência do usuário, pois permite que a interface permaneça responsiva enquanto o
+ sistema processa a requisição em segundo plano. Isso evita travamentos e longas esperas, proporcionando uma experiência mais fluida. Por exemplo, em uma aplicação web,
+  elementos como botões e formulários podem continuar acessíveis, e feedbacks de carregamento ou progresso podem ser exibidos, informando o usuário do status da operação. 
+  Essa abordagem reduz a percepção de lentidão e torna a interação mais satisfatória e ágil.
 
 9. **Como você trataria erros em requisições HTTP?**
+R: Verifique o status HTTP para identificar o erro.
+Use try/catch para capturar exceções.
+Mostre mensagens de erro amigáveis ao usuário.
+Tente novamente em falhas temporárias (retries).
+Registre erros para análise futura.
+Use dados em cache como fallback, quando possível.
+
    - Quais estratégias você poderia implementar para garantir uma boa experiência em caso de falhas?
+R: Re-tentativas automáticas: Tentar novamente requisições em falhas temporárias.
+Fallbacks: Exibir dados em cache ou mensagens padrão quando o servidor não responde.
+Feedback ao usuário: Informar o status e oferecer instruções em erros.
+Experiência offline: Permitir operações básicas ou visualização offline, se possível.
+Log de erros: Monitorar falhas para rápida resolução.
 
 10. **Que práticas de design de API você considera essenciais para uma boa documentação e usabilidade?**
+R: Endpoints claros e consistentes: Use nomes de recursos descritivos e verbos HTTP corretos.
+Estrutura de resposta uniforme: Padronize os formatos de resposta (ex: JSON) para facilitar o consumo da API.
+Manejo de erros detalhado: Defina códigos de status e mensagens de erro claras.
+Versionamento da API: Use versionamento para controlar mudanças sem impactar usuários antigos.
+Documentação abrangente: Inclua exemplos, descrições de parâmetros, códigos de resposta e fluxos de autenticação.
+
     - O que você incluiria em uma documentação de API para facilitar o uso por desenvolvedores externos?
-
-
+    R: Introdução e visão geral: Explicação do propósito da API e como ela pode ser usada.
+Guia de autenticação: Instruções claras para autenticar requisições (ex: tokens de API, OAuth).
+Descrição dos endpoints: Endpoints detalhados com métodos HTTP, parâmetros, e exemplos de requisições e respostas.
+Códigos de status e erros: Lista de códigos de status e mensagens de erro com explicações.
+Exemplos práticos: Exemplos em diferentes linguagens para integração rápida.
+Limites de uso e práticas recomendadas: Informações sobre limites de requisição e dicas de uso.
 
 CAP08
 ## Perguntas para reflexão
 
 1. **Como o uso do `useState` pode simplificar o gerenciamento de estado em comparação com componentes de classe no React?**
+R: O useState simplifica o gerenciamento de estado em componentes funcionais do React em comparação com componentes de classe, pois:Sintaxe mais limpa, Separação de lógica de estado, Facilidade de composição
    
 2. **Quais são as principais vantagens de utilizar TypeScript em conjunto com o `useState`?**
+R: Segurança de tipos, Autocompletar e sugestões, Detecção antecipada de erros, Facilidade na manutenção
 
 3. **De que maneira a tipagem de estado pode ajudar a evitar erros durante o desenvolvimento? Você já encontrou problemas relacionados a tipos em seu código?**
+R: Validação de tipos, Autocompletar e sugestões de código, Detecção de erros em tempo de compilação
 
 4. **Como você lidaria com atualizações de estado que dependem do estado anterior? Por que é importante usar a função de callback nesse caso?**
+R: Ao atualizar o estado baseado no anterior, é importante usar a função de callback do useState para garantir que a atualização seja feita com o valor mais recente.
+ Isso evita erros causados por atualizações assíncronas e assegura consistência no estado. 
 
 5. **Quais são algumas situações em que você usaria `useState` para gerenciar arrays? Você já teve desafios ao manipular arrays em estados?**
+R: Armazenamento de listas dinâmicas: Para manter uma lista de itens, como tarefas ou produtos, que podem ser adicionados, removidos ou modificados.
+Filtros e buscas: Quando você precisa filtrar ou ordenar elementos de um array com base em interações do usuário.
+Armazenamento de múltiplos dados relacionados: Como manter um conjunto de respostas de um formulário ou resultados de uma pesquisa.
+Desafios: Mutabilidade, Atualizações complexas
 
 6. **Como o `useEffect` pode complementar o `useState` em componentes funcionais? Quais cenários você imagina onde essa combinação seria útil?**
+R: 
+O useEffect complementa o useState em componentes funcionais ao permitir que você realize efeitos colaterais, como chamadas a APIs, manipulação de DOM ou subscrições,
+ sempre que o estado ou as propriedades mudam.
+ Ele permite controlar quando e como o estado deve ser atualizado ou como as mudanças no estado devem afetar o comportamento do componente
 
 7. **Você já experimentou atualizar objetos complexos com o `useState`? Quais cuidados você precisa ter ao fazer isso?**
+R: Imutabilidade: O React não detecta mudanças em objetos ou arrays mutáveis. Ao atualizar um objeto, é necessário criar uma cópia do objeto e atualizar as partes desejadas
+Evitar sobrescrita: Ao atualizar partes de um objeto, use o operador de espalhamento (...) para manter as propriedades não modificadas e atualizar apenas as propriedades necessárias.
+Evitar mudanças diretas: Não modifique o objeto diretamente, como user.name = 'Novo Nome', pois isso não acionaria uma re-renderização. Em vez disso, crie uma nova referência.
 
 8. **Como você se sente em relação à transição de componentes de classe para componentes funcionais no React? Quais desafios ou benefícios você percebeu?**
+R: benefícios: Sintaxe mais simples, Hooks , Facilidade de testes
+Desafios: Mudança de mentalidade, Hooks avançados
 
 9. **Em que situações você poderia preferir usar outros hooks, como `useReducer`, em vez de `useState`?**
+R: O estado for complexo ou tiver múltiplos valores interdependentes.
+A lógica de atualização do estado for mais elaborada (ações complexas).
+For necessário um gerenciamento de estado mais previsível e organizado, especialmente em componentes grandes.
 
 10. **Quais práticas recomendadas você aplicaria ao gerenciar o estado em aplicações React maiores e mais complexas?** 
-
+R: Divida o estado em pedaços pequenos.
+Use useReducer para estados complexos.
+Gerencie estado global com Context API ou Redux.
+Sempre mantenha imutabilidade no estado.
+Agrupe atualizações de estado e use callback.
+Utilize useMemo e useCallback para evitar re-renderizações desnecessárias.
 
 
 CAP10
 ### Perguntas para reflexão
 
 1. Como posso otimizar a organização do código?  
+R:Divisão em módulos: Separe o código em arquivos e pastas lógicas, como components/, utils/, services/ e hooks/, para tornar a estrutura mais clara e fácil de manter.
+
+Reutilização de código: Extraia componentes e funções reutilizáveis. Use custom hooks para encapsular lógicas repetitivas.
+
+Uso de padrões e convenções: Adote convenções consistentes de nomeação e estrutura de arquivos, facilitando a leitura e colaboração.
+
+Modularização de estados: Organize o estado em partes menores e independentes. Use useReducer ou Context API para estados mais complexos.
+
+Documentação clara: Comente o código onde necessário e use um estilo de codificação legível. Mantenha um README detalhado para orientar outros desenvolvedores.
+
+Evitar duplicação: Não repita o código desnecessariamente. Centralize lógicas comuns em funções utilitárias ou componentes.
+
+Organização de dependências: Utilize gerenciadores de pacotes (ex: npm ou yarn) de forma eficiente, atualizando e mantendo dependências controladas.
+
 2. Como gerenciar o estado da aplicação de forma mais eficiente?  
+R: Use useState para estados simples e useReducer para estados complexos.
+Utilize Context API ou Redux para estado global.
+Evite re-renderizações desnecessárias com useMemo e useCallback.
+Mantenha o estado imutável para garantir eficiência.
+Divida o estado em componentes pequenos e especializados.
+Carregue dados de forma condicional com lazy loading e React Suspense.
+
 3. Como posso armazenar as tarefas localmente?  
+R: Para armazenar tarefas localmente, você pode usar o localStorage ou sessionStorage. 
+A diferença principal é que o localStorage persiste os dados entre sessões do navegador, enquanto o sessionStorage persiste apenas durante a sessão atual.
+
 4. Como implementar validações mais robustas?  
+R: Use bibliotecas como Yup ou Joi para validar dados de formulários.
+Validação assíncrona para dados dependentes de APIs.
+Exemplo: Verificar se o nome de usuário está disponível.
+Validações condicionais para campos dependentes de outros.
+Exemplo: Confirmar senha apenas se a senha for preenchida.
+Mensagens de erro claras e feedback em tempo real para o usuário.
+Validação no servidor para garantir segurança adicional.
+
 5. Quais melhorias de acessibilidade podem ser feitas?  
+R: Uso adequado de semântica HTML: Utilize tags semânticas (como <header>, <footer>, <nav>, <main>, <section>) para melhorar a navegação e compreensão do conteúdo.
+Textos alternativos: Forneça alt para todas as imagens e elementos gráficos, descrevendo seu conteúdo ou função.
+Contraste adequado: Garanta que o texto tenha contraste suficiente em relação ao fundo, facilitando a leitura para pessoas com dificuldades visuais.
+Navegação por teclado: Certifique-se de que todos os elementos interativos possam ser acessados e manipulados com o teclado. Use atributos como tabindex e verifique a navegação com Tab.
+Labels e descrições: Associe labels aos campos de formulário usando o atributo for e forneça instruções claras para entrada de dados.
+Aria-Attributes: Use atributos ARIA (como aria-live, aria-label, aria-hidden) para melhorar a acessibilidade de elementos dinâmicos e interativos.
+Foco visível: Garanta que o foco do teclado seja claramente visível e fácil de identificar durante a navegação.
+Compatibilidade com leitores de tela: Teste sua aplicação com leitores de tela como NVDA, VoiceOver, para garantir que o conteúdo seja acessível.
+
 6. Como posso melhorar a experiência do usuário com animações?  
+R: Animações suaves e rápidas: Use animações curtas e suaves para evitar distrações. Transições rápidas (0.2s - 0.5s) ajudam a manter o foco no conteúdo.
+Feedback visual: Utilize animações para fornecer feedback ao usuário, como ao enviar um formulário ou carregar um conteúdo. Isso ajuda a mostrar que a ação está em progresso.
+Efeitos de transição: Use transições suaves ao mudar de páginas ou estados (como em navegações e mudanças de seção) para criar uma sensação de continuidade.
+Evite exageros: Animações excessivas podem sobrecarregar o usuário. Use-as com moderação e apenas quando necessário.
+Animações baseadas em interação: Adicione animações que respondem à interação do usuário, como ao passar o mouse, clicar ou rolar. Isso torna a experiência mais intuitiva e envolvente.
+Desempenho: Certifique-se de que as animações não impactem negativamente o desempenho. Utilize animações CSS sempre que possível, já que são mais eficientes que as JavaScript.
+Acessibilidade: Ofereça uma opção para desabilitar animações, como em configurações de acessibilidade, para usuários sensíveis a movimentos.
+Contexto e propósito: Use animações com um propósito claro, como indicar um carregamento, enfatizar uma ação ou ilustrar um processo, para não desviar a atenção do conteúdo principal.
+
 7. Como implementar testes para garantir a funcionalidade?  
+R: Testes unitários: Use Jest para testar funções isoladas.
+Testes de integração: Use React Testing Library para testar componentes e interações.
+Testes E2E: Use Cypress para testar fluxos completos.
+Testes de desempenho: Use Lighthouse para analisar a performance.
+Testes de acessibilidade: Use axe-core para garantir a acessibilidade.
+Cobertura de testes: Use Istanbul/NYC para medir a cobertura.
+
 8. Que outras funcionalidades poderiam ser agregadas?  
+R: Autenticação: Use JWT ou OAuth para controle de acesso.
+Armazenamento em nuvem: Integre AWS S3 ou Google Cloud.
+Notificações em tempo real: Utilize WebSockets ou FCM.
+Internacionalização (i18n): Suporte a múltiplos idiomas com react-i18next.
+Analytics: Integre Google Analytics ou Mixpanel.
+Modo escuro: Ofereça troca dinâmica de tema.
+Backup e sincronização: Use Firebase ou MongoDB Atlas.
+Cache de dados: Implemente cache com React Query.
+Suporte a multimídia: Adicione upload e edição de arquivos.
+Testes automatizados de UI: Use Cypress ou Puppeteer.
+
 9. Como escalar este projeto?  
+R: Modularize o código em camadas (Frontend, Backend, Banco de dados).
+Microserviços para maior flexibilidade.
+Bancos de dados escaláveis: use NoSQL ou sharding.
+Nuvem (AWS, Google Cloud) para escalabilidade automática.
+Cache com Redis ou Memcached.
+CDN para melhorar o desempenho de conteúdo estático.
+Balanceamento de carga para distribuir o tráfego.
+Mensageria assíncrona com RabbitMQ ou Kafka.
+Monitoramento com Prometheus ou Grafana.
+Testes de carga com Apache JMeter.
+
 10. Que outras tecnologias ou frameworks poderiam ser integrados?
+R: Frameworks de Backend:
+Node.js com Express ou NestJS para APIs rápidas e escaláveis.
+Django ou Flask (Python) para soluções rápidas e robustas.
+Bancos de Dados:
+PostgreSQL ou MySQL para dados relacionais.
+MongoDB ou Cassandra para dados NoSQL.
+Firebase Firestore para sincronização em tempo real.
+Autenticação e Autorização:
+Auth0 ou Firebase Authentication para login e autenticação simples.
+OAuth 2.0 ou JWT para segurança de APIs.
+Gerenciamento de Estado:
+Redux ou Recoil para estados globais em React.
+React Query ou Apollo Client para gerenciamento de dados remotos.
+Testes e Qualidade:
+Jest e React Testing Library para testes unitários e de integração.
+Cypress ou Playwright para testes E2E.
+Containers e Orquestração:
+Docker para containerização de aplicações.
+Kubernetes para orquestração de containers em ambientes de produção.
+CI/CD:
+GitHub Actions ou GitLab CI para automação de pipelines.
+Jenkins ou CircleCI para integração contínua.
+Monitoramento e Logs:
+Elasticsearch com Kibana para logs centralizados.
+Prometheus e Grafana para monitoramento de desempenho.
+APIs e Mensageria:
+GraphQL para consultas eficientes.
+RabbitMQ ou Apache Kafka para mensageria assíncrona.
+Frontend Frameworks:
+Vue.js ou Svelte como alternativas ao React.
+Next.js ou Nuxt.js para renderização do lado do servidor (SSR) e geração de sites estáticos.
 
 
 Respostas dos Projetos Estão no Readme
@@ -320,16 +520,3 @@ PROJ05
 REPO01
 REPO02
 REPO03
-### Perguntas para Entrevista
-
-1. **Qual a vantagem de usar o Prisma com NestJS em comparação a outros ORMs?**  
-
-2. **Como o NestJS facilita a separação de responsabilidades no desenvolvimento de APIs?**  
-
-3. **Explique como funciona o ciclo de vida do Prisma dentro do NestJS.**  
-
-4. **Quais são os principais benefícios do uso de SQLite para este projeto?**  
-
-5. **Qual a importância das validações no `UsersService` e onde você adicionaria essas validações?**  
-
-6. **Como o NestJS implementa injeção de dependência e quais as vantagens disso?**  

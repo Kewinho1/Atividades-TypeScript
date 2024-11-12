@@ -13,3 +13,7 @@ PROJ06 - To Do List: https://github.com/Kewinho1/ToDoList.git
 PROJ07 - Pokédex: https://github.com/Kewinho1/Pokedex.git
 
 REPO01 : https://github.com/Kewinho1/REPO01.git
+
+REPO02 : https://github.com/Kewinho1/REPO02.git
+
+REPO03 : https://github.com/Kewinho1/REPO03.git
