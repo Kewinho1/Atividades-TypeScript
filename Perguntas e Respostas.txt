@@ -1,4 +1,4 @@
-CAP00
+Cap00
 1. **Qual é a função do JavaScript em uma aplicação web?**
 R: Criação de sites dinâmicos, formulários interativos, animações, validação de dados e manipulação do DOM (Document Object Model).
 
@@ -238,12 +238,17 @@ R: HTTP (Hypertext Transfer Protocol) é um protocolo de comunicação utilizado
    - Como você vê a evolução do HTTP na construção de APIs e serviços?
 
 2. **Em quais situações você escolheria usar `GET` em vez de `POST`, e por quê?**
+R: GET: Usado para recuperar dados sem alterar o estado do servidor. Ideal para requisições simples e leitura de informações, POST: Usado para enviar dados ao servidor e geralmente criar ou modificar recursos. Ideal quando os dados são grandes ou sensíveis e quando você precisa alterar o estado do servidor
+
    - Como as semânticas de cada método HTTP impactam o design da sua API?
 
 3. **Como os parâmetros de rota e query params podem melhorar a flexibilidade de uma API?**
+R: Eles permitem que a API seja mais flexível, reutilizável e escalável.
+
    - Você consegue pensar em um exemplo prático onde ambos seriam utilizados?
 
 4. **Qual é a função dos headers em uma requisição HTTP?**
+
    - Como a falta de headers apropriados poderia afetar a comunicação entre cliente e servidor?
 
 5. **Quais são as vantagens de usar bibliotecas como Axios ou Fetch em comparação com XMLHttpRequest?**
